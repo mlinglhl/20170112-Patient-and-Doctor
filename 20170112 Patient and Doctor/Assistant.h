@@ -11,6 +11,6 @@
 @interface Assistant : NSObject
 
 @property NSDictionary *knowledgeBase;
-@property NSDictionary *patientPrescriptions;
+@property NSMutableDictionary *patientPrescriptions;
 
 @end

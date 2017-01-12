@@ -25,6 +25,7 @@ int main(int argc, const char * argv[]) {
         [patient1 addSymptom:[NSString stringWithFormat:@"bleeding"]];
         [patient1 addSymptom:[NSString stringWithFormat:@"plague"]];
         [patient1 visitDoctor:doctor1];
+        [patient1 visitDoctor:doctor2];
         [patient2 visitDoctor:doctor2];
         [patient3 visitDoctor:doctor3];
     

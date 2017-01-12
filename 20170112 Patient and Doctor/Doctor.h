@@ -20,4 +20,5 @@
 - (void) checkSymptoms: (Patient *)patient;
 - (void) giveDiagnosis: (Patient *)patient;
 - (void) checkRecords: (Patient *)patient;
+- (void) giveMedicine: (Patient *) patient prescription: (NSString *)drug;
 @end

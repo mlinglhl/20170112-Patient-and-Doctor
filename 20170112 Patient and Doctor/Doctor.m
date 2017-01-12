@@ -8,7 +8,6 @@
 
 #import "Doctor.h"
 
-
 @implementation Doctor
 
 - (instancetype)initWithName:(NSString *)doctorName specialization: (NSString*) doctorSpecialization assistant: (Assistant *) assistant
@@ -46,16 +45,23 @@
 - (void) giveDiagnosis: (Patient *)patient {
     for (NSString *symptom in patient.symptoms) {
         if ([symptom isEqualToString:@"bleeding"]) {
-            NSLog(@"%@ will cure your %@.", self.assistant.knowledgeBase[@"bleeding"], symptom);
-            [patient.prescriptionsNeeded addObject:self.assistant.knowledgeBase[@"bleeding"]];
+            NSLog(@"Use %@ to cure your %@.", self.assistant.knowledgeBase[@"bleeding"], symptom);
+            if (![patient.prescriptionsNeeded containsObject:self.assistant.knowledgeBase[@"bleeding"]]) {
+                [patient.prescriptionsNeeded addObject:self.assistant.knowledgeBase[@"bleeding"]];
+            }
         }
         else if ([symptom isEqualToString:@"headache"]) {
-            NSLog(@"%@ will cure your %@.", self.assistant.knowledgeBase[@"headache"], symptom);
-            [patient.prescriptionsNeeded addObject:self.assistant.knowledgeBase[@"headache"]];
+            NSLog(@"Use %@ to cure your %@.", self.assistant.knowledgeBase[@"headache"], symptom);
+            if (![patient.prescriptionsNeeded containsObject:self.assistant.knowledgeBase[@"headache"]]) {
+                [patient.prescriptionsNeeded addObject:self.assistant.knowledgeBase[@"headache"]];
+            }
         }
         else if ([symptom isEqualToString:@"sores"]) {
-            NSLog(@"%@ will cure your %@.", self.assistant.knowledgeBase[@"sores"], symptom);
-            [patient.prescriptionsNeeded addObject:self.assistant.knowledgeBase[@"sores"]];
+            NSLog(@"Use %@ to cure your %@.", self.assistant.knowledgeBase[@"sores"], symptom);
+            if (![patient.prescriptionsNeeded containsObject:self.assistant.knowledgeBase[@"sores"]]) {
+                
+                [patient.prescriptionsNeeded addObject:self.assistant.knowledgeBase[@"sores"]];
+            }
         }
         else {
             NSLog(@"I don't know a treatment for %@.", symptom);
@@ -63,8 +69,21 @@
     }
 }
 
--(void) checkRecords: (Patient *)patient {
-    
+-(BOOL) checkRecords: (Patient *)patient prescription: (NSString *)drug {
+    NSSet *set = [[NSSet alloc] initWithSet:[self.assistant.patientPrescriptions objectForKey:patient.name]];
+    if ([[self.assistant.patientPrescriptions objectForKey:patient.name] containsObject:drug]) {
+        NSLog(@"You already have %@", drug);
+        return NO;
+    }
+    else {
+        NSSet *set2 = [set setByAddingObject:drug];
+        [self.assistant.patientPrescriptions setValue:set2 forKey:patient.name];
+        return YES;
+    }
+}
+
+- (void) giveMedicine: (Patient *) patient prescription: (NSString *)drug {
+    [self checkRecords:patient prescription: drug];
 }
 
 @end

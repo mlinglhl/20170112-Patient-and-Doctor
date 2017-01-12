@@ -14,11 +14,11 @@
 {
     self = [super init];
     if (self) {
-        _knowledgeBase = @{@"bleeding": @"Leeches",
-                           @"headache": @"Asprin",
-                           @"sores": @"Ointment"
+        _knowledgeBase = @{@"bleeding": @"leeches",
+                           @"headache": @"asprin",
+                           @"sores": @"ointment"
                            };
-        _patientPrescriptions = [[NSDictionary alloc] init];
+        _patientPrescriptions = [[NSMutableDictionary alloc] init];
     }
     return self;
 }

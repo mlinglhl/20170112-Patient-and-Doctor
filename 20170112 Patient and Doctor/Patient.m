@@ -25,7 +25,9 @@
 }
 
 - (void) requestMedicationFromDoctor:(Doctor *)doctor {
-    
+    for (NSString *cure in self.prescriptionsNeeded) {
+        [doctor giveMedicine:self prescription:cure];
+    }
 }
 
 - (void) visitDoctor:(Doctor *)doctor {
