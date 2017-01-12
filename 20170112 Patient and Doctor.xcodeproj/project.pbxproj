@@ -10,6 +10,7 @@
 		8987B67F1E27EC7B00EAF01F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8987B67E1E27EC7B00EAF01F /* main.m */; };
 		8987B6871E27ED5300EAF01F /* Doctor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8987B6861E27ED5300EAF01F /* Doctor.m */; };
 		8987B68A1E27ED5E00EAF01F /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8987B6891E27ED5E00EAF01F /* Patient.m */; };
+		8987B6901E280A4300EAF01F /* Assistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8987B68F1E280A4300EAF01F /* Assistant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		8987B6861E27ED5300EAF01F /* Doctor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Doctor.m; sourceTree = "<group>"; };
 		8987B6881E27ED5E00EAF01F /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
 		8987B6891E27ED5E00EAF01F /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		8987B68E1E280A4300EAF01F /* Assistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assistant.h; sourceTree = "<group>"; };
+		8987B68F1E280A4300EAF01F /* Assistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Assistant.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				8987B6861E27ED5300EAF01F /* Doctor.m */,
 				8987B6881E27ED5E00EAF01F /* Patient.h */,
 				8987B6891E27ED5E00EAF01F /* Patient.m */,
+				8987B68E1E280A4300EAF01F /* Assistant.h */,
+				8987B68F1E280A4300EAF01F /* Assistant.m */,
 			);
 			path = "20170112 Patient and Doctor";
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8987B6901E280A4300EAF01F /* Assistant.m in Sources */,
 				8987B68A1E27ED5E00EAF01F /* Patient.m in Sources */,
 				8987B6871E27ED5300EAF01F /* Doctor.m in Sources */,
 				8987B67F1E27EC7B00EAF01F /* main.m in Sources */,

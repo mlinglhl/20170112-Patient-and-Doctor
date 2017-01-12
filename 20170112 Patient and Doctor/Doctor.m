@@ -11,12 +11,13 @@
 
 @implementation Doctor
 
-- (instancetype)initWithName:(NSString *)doctorName specialization: (NSString*) doctorSpecialization
+- (instancetype)initWithName:(NSString *)doctorName specialization: (NSString*) doctorSpecialization assistant: (Assistant *) assistant
 {
     self = [super init];
     if (self) {
         _name = doctorName;
         _specialization = doctorSpecialization;
+        _assistant = assistant;
     }
     return self;
 }
@@ -43,19 +44,18 @@
 }
 
 - (void) giveDiagnosis: (Patient *)patient {
-    NSDictionary *knowledgeBase = @{@"bleeding": @"Leeches",
-                                    @"headache": @"Asprin",
-                                    @"sores": @"Ointment"
-                                    };
     for (NSString *symptom in patient.symptoms) {
         if ([symptom isEqualToString:@"bleeding"]) {
-            NSLog(@"%@ will cure your %@.", knowledgeBase[@"bleeding"], symptom);
+            NSLog(@"%@ will cure your %@.", self.assistant.knowledgeBase[@"bleeding"], symptom);
+            [patient.prescriptionsNeeded addObject:self.assistant.knowledgeBase[@"bleeding"]];
         }
         else if ([symptom isEqualToString:@"headache"]) {
-            NSLog(@"%@ will cure your %@.", knowledgeBase[@"headache"], symptom);
+            NSLog(@"%@ will cure your %@.", self.assistant.knowledgeBase[@"headache"], symptom);
+            [patient.prescriptionsNeeded addObject:self.assistant.knowledgeBase[@"headache"]];
         }
         else if ([symptom isEqualToString:@"sores"]) {
-            NSLog(@"%@ will cure your %@.", knowledgeBase[@"sores"], symptom);
+            NSLog(@"%@ will cure your %@.", self.assistant.knowledgeBase[@"sores"], symptom);
+            [patient.prescriptionsNeeded addObject:self.assistant.knowledgeBase[@"sores"]];
         }
         else {
             NSLog(@"I don't know a treatment for %@.", symptom);

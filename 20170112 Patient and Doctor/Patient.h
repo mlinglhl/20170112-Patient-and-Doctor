@@ -17,6 +17,8 @@
 @property BOOL healthCard;
 @property NSMutableArray *symptoms;
 @property BOOL sick;
+@property NSMutableArray *desiredTreatment;
+@property NSMutableArray *prescriptionsNeeded;
 
 - (instancetype)initWithName: (NSString *) patientName age:(NSInteger)patientAge healthCard: (BOOL) patientCard;
 - (void) requestMedicationFromDoctor: (Doctor *) doctor;

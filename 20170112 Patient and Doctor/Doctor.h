@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Patient.h"
+#import "Assistant.h"
 
 @interface Doctor : NSObject
 
 @property NSString *name;
 @property NSString *specialization;
-- (instancetype)initWithName:(NSString *)doctorName specialization: (NSString*) doctorSpecialization;
+@property Assistant *assistant;
+- (instancetype)initWithName:(NSString *)doctorName specialization: (NSString*) doctorSpecialization assistant: (Assistant *) assistant;
 - (BOOL) checkHealthCard: (Patient *)patient;
 - (void) checkSymptoms: (Patient *)patient;
 - (void) giveDiagnosis: (Patient *)patient;

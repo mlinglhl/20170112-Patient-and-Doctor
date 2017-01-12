@@ -19,6 +19,7 @@
         _age = patientAge;
         _healthCard = patientCard;
         _symptoms = [[NSMutableArray alloc] init];
+        _prescriptionsNeeded = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -31,6 +32,7 @@
     if ([doctor checkHealthCard:self]) {
         [doctor checkSymptoms:self];
         [doctor giveDiagnosis:self];
+        [self requestMedicationFromDoctor:doctor];
     };
 }
 
